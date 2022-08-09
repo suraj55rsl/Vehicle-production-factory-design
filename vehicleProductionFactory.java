@@ -1,7 +1,10 @@
 class vehicleProductionFactory{
     public String name;
-    public String registrationNumaber;
+    /*registration number is protected 
+    for factory */
+    protected String registrationNumaber;
     public String address;
+
     vehicleProductionFactory(String name,String registrationNumaber,String address)
     {
         this.name=name;
@@ -9,11 +12,12 @@ class vehicleProductionFactory{
         this.address=address;
 
     }
-    //static Innerr class
+    /*static Innerr class
+    it can't be instantiate only can be inherited and extended*/
     static abstract class vehicle{
         public  boolean gear;
         public boolean Break;
-        public int ignition;
+        /** some abstarct funtions have, no body, they will be inherited by the chill class and will be coded accordingly */
         abstract void start();
         abstract void run();
         abstract void stop();
@@ -24,12 +28,14 @@ class vehicleProductionFactory{
         public int seatCapacity;
         public String model;
         public int speed;
+        public int ignition;
         car(String name,String model,int seatCapacity){
             this.name=name;
             this.model=model;
             this.seatCapacity=seatCapacity;
         }
-        //can directly access member of outer class.
+        //can directly access member of outer class
+        /**Run time polymorphism, extention  */
         @Override
         public void start(){
             ignition=1;
@@ -68,6 +74,7 @@ class vehicleProductionFactory{
         public int wheels;
         public int seatCapacity;
         public int speed;
+        public int ignition;
         
         bus(String name,String model,int seatCapacity,int wheels){
             this.name=name;
@@ -115,6 +122,7 @@ class vehicleProductionFactory{
         public int wheels;
         public String name;
         public int speed;
+        public int ignition;
         truck(int wheels,String name){
             this.name=name;
             this.wheels=wheels;
